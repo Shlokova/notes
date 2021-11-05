@@ -1,0 +1,79 @@
+
+.App {
+  text-align: center;
+  align-items: center;
+  box-sizing: border-box;
+  flex-direction: column;
+  display: flex;
+}
+
+
+.card-items{
+  padding: 12px;
+  /* border-top: 20px solid #83a09479; */
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  margin: 12px;
+  background-color: #e4e6a41a;
+  float: left;
+  /* display: flex; */
+  width: 20%;
+  min-width: 150px;
+  height: 200px;
+  box-shadow: 4px 4px 14px rgba(6, 3, 10, 0.329);
+  position: relative;
+}
+
+.card-items p{
+  max-height: 150px;
+  overflow:auto;
+}
+
+.card-items .note-theme{
+  position: absolute;
+  top: -21px;
+  font-style: italic;
+  font-size: 15px;
+  
+}
+
+.html-card{
+  border-top: 22px solid #12835479;
+}
+
+.css-card{
+  border-top: 22px solid #50257479;
+}
+
+.js-card{
+  border-top: 22px solid #99ac3079;
+}
+
+.react-card{
+  border-top: 22px solid #ec1a6b79;
+}
+
+.card-list{
+  margin: 10px; 
+  /* display: flex; */
+}
+
+
+.form-input,
+.form-text{
+  display: block;
+  margin-bottom: 10px;
+
+  justify-content: center;
+  align-items: center;
+}
+
+.form-input{
+  width: 100%;
+}
+.form-text{
+  max-width: 300px;
+  min-width: 300px;
+  height: 50px;
+  margin-right: 0px;
+}

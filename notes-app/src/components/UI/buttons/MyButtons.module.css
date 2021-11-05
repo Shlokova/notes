@@ -1,0 +1,29 @@
+.myBtnDel {
+    border-radius: 50%;
+    color: rgb(0, 53, 53);
+    font-size: 18px;
+    font-weight: bolder;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    top: -20px;
+    right:0px;
+
+}
+
+.myBtnDel:hover{
+    transform: scale(1.1);
+    opacity: 0.9;
+
+}
+
+.myBtn {
+    margin: 5px;
+    border-radius: 5px;
+    color: rgb(221, 220, 220);
+    font-size: 16px;
+    background: rgba(255, 255, 255, 0.356);
+    border: none;
+    cursor: pointer;
+}

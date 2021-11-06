@@ -1,7 +1,9 @@
 import {useMemo} from "react";
 
 export const useSortedNotes = (notes,sort) =>{
+    
     const sortedNotes = useMemo(() => {
+        console.log('sort')
         if (sort) {
             return [...notes].sort(((a, b) => a[sort].localeCompare(b[sort])))
         }
@@ -10,21 +12,28 @@ export const useSortedNotes = (notes,sort) =>{
     return sortedNotes;
 }
 
-export const useNotes = (notes,sort,query) =>{
+export const useSortedAndSearchNotes = (notes,sort,query) =>{
+    
     const sortedNotes = useSortedNotes(notes,sort);
     const sortedAndSearchNotes = useMemo(() => {
-        return sortedNotes.filter(note => note.theme.toLowerCase().includes(query.toLowerCase()))
+        console.log('query')
+        return sortedNotes.filter(note => note.noteName.toLowerCase().includes(query.toLowerCase()))
     }, [query, sortedNotes]);
 
     return sortedAndSearchNotes;
 
 }
 
-export const useSortedThemeNotes = (notes,sort,query, theme) => {
-    const sortedNotes = useNotes(notes,sort, query);
+export const useNotes = (notes,sort ,query, theme) => {
+    const sortedNotes = useSortedAndSearchNotes(notes,sort, query);
+    
+    // console.log(sortedNotes)
+    // console.log(theme.reduce((item, sum => sum && item)))
     const sortedAndSearchThemeNotes = useMemo(() => {
-        return sortedNotes.filter(note => note.theme.toLowerCase().includes(query.toLowerCase()))
-    }, [query, sortedNotes]);
+        console.log('theme')
+        return sortedNotes.filter(note => !!theme.find((item) => item.title === note.theme && item.active === true))
+            
+    }, [theme.values(), sortedNotes]);
 
     return sortedAndSearchThemeNotes;
 }

@@ -1,15 +1,29 @@
 import React from 'react'
 import CardItems from './CardItems'
-const CardList = ({notes, remove}) => {
+import {TransitionGroup, CSSTransition} from 'react-transition-group'
+
+function CardList({ notes, remove }) {
+    if (!notes.length) {
+        return (
+            <div>Ничего нет...</div>
+        );
+    }
     return (
-        <div className = 'card-list'>
-            {
-        notes.map((item, index) => 
-          <CardItems note = {item} key = {index} number={index + 1} remove = {remove}/>
-        ) 
-      }
-        </div>
-    )
+        
+            <div className='card-list'>
+            <TransitionGroup>
+                {notes.map((item, index) => <CSSTransition
+                    key={item.id}
+                    timeout={400}
+                    classNames="card"
+                >
+                    <CardItems note={item} key={index} number={index + 1} remove={remove} />
+                </CSSTransition>
+                )}
+                </TransitionGroup>
+            </div>
+        
+    );
 }
 
 export default CardList

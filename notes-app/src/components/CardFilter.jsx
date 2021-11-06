@@ -4,13 +4,8 @@ import MyInput from "./UI/input/MyInput";
 import MySelect from "./UI/select/MySelect";
 
 
-const CardFilter = ({filter, setFilter}) => {
-    const [data, setData] = useState([
-        {title: "CSS", active: true},
-        {title: "HTML", active: true},
-        {title: "JavaScript", active: true},
-        {title: "React", active: true},
-    ])
+const CardFilter = ({data, filter, setFilter, onChange}) => {
+    
 
     // const notesFilter = () =>{
     //     const activeNotes = [];
@@ -23,12 +18,7 @@ const CardFilter = ({filter, setFilter}) => {
     //     )
     // }
 
-    // const changeBox = (index) =>{
-    //     let newState = [...data]
-    //     newState[index].active = !newState[index].active;
-    //     setData(newState);
-    //     setNotes(notesFilter())
-    // }
+    
 
     return (
         <div>
@@ -43,14 +33,15 @@ const CardFilter = ({filter, setFilter}) => {
                 defaultValue='Сортировка по'
                 option={
                     [
-                        {value: 'theme', name: 'По названию'},
-                        {value: 'cardName', name: 'По описанию'}
+                        {value: 'theme', name: 'По теме'},
+                        {value: 'noteName', name: 'По названию'}
                     ]
                 }
                 onChange = {selectedSort => setFilter({...filter, sort: selectedSort})}
             />
             <div>
-                <MyCheckbox data = {data} onChange = {selectedSort => setFilter({...filter, theme: selectedSort})}/>
+            
+                <MyCheckbox data = {data} onChange = {onChange}/>
             </div>
         </div>
     )

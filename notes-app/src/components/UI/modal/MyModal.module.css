@@ -5,7 +5,8 @@
     right: 0;
     left: 0;
     display: none;
-    background: rgba(0,0,0,0.5);
+    background: rgba(8, 5, 5, 0.5);
+    z-index: 1000;
 }
 .myModalContent{
     padding: 25px;

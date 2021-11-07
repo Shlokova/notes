@@ -15,6 +15,11 @@ const CardForm = ({create, visible, setVisible}) => {
         event.preventDefault();
         const newNote = {...note, id: new Date()};
         create(newNote)
+        setNote({
+            id: '',
+            noteName: '',
+            noteText: '',
+            theme: ''})
     }
     return (
         <MyModal visible = {visible} setVisible = {setVisible}>
@@ -33,7 +38,7 @@ const CardForm = ({create, visible, setVisible}) => {
             <MySelect 
                 value = {note.theme} 
                 onChange = {e => setNote({...note, theme : e})} 
-                defaultValue = "Тема"
+                defaultValue = "Выберите тему"
                 option = {[
                     {value: 'CSS', name: 'CSS'},
                     {value: 'HTML', name: 'HTML'},

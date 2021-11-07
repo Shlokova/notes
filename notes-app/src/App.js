@@ -14,7 +14,7 @@ function App() {
   
   const [notes, setNotes]  = useState([]);
   const [notesFetching, isNotesLoading, notesError] = useFetching(
-    setTimeout(() => setNotes(jsonStudyNotes), 3000)
+    () => setNotes(jsonStudyNotes)
   )
   useEffect(() => {
     notesFetching()
@@ -31,7 +31,6 @@ function App() {
   const sortedAndSearchPosts = useNotes(notes, filter.sort, filter.query, filter.theme)
   
   const changeBox = (e) =>{
-    console.log(sortThemeActivate[0])
     const newStateSortThemeActivate = [...sortThemeActivate];
     for (let theme of newStateSortThemeActivate){
       if (e.target.name === theme.title){
@@ -52,7 +51,7 @@ function App() {
   
   return (
     <div className="App">
-      <MyButtons onClick = {() => setVisible(true)}>+</MyButtons>
+     
       <CardFilter
                 filter={filter}
                 setFilter={setFilter}
@@ -67,6 +66,7 @@ function App() {
         visible = {visible}
         create = {createCard}
         />
+         <MyButtons onClick = {() => setVisible(true)}>Добавить заметку + </MyButtons>
     {isNotesLoading
     ?<MyLoader/>
     :<CardList notes = {sortedAndSearchPosts} remove = {removeCard}/>}

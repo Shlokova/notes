@@ -5,13 +5,13 @@
     right: 0;
     left: 0;
     display: none;
-    background: rgba(8, 5, 5, 0.5);
+    background: rgba(27, 19, 34, 0.801);
     z-index: 1000;
 }
 .myModalContent{
     padding: 25px;
-    background: #e1e7e3;
-    border-radius: 16px;
+    background: linear-gradient(rgb(137, 121, 145),rgb(94, 94, 94));
+    border-radius: 5px;
     max-width: 400px;
     min-width: 300px;
 }
@@ -20,3 +20,4 @@
     justify-content: center;
     align-items: center;
 }
+

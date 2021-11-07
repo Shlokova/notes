@@ -6,7 +6,6 @@
     margin: 12px;
     background-color: #e4e6a41a;
     float: left;
-    /* display: flex; */
     width: 22%;
     min-width: 150px;
     height: 250px;
@@ -62,21 +61,21 @@
 
 
   .html-card{
-    border-top: 22px solid #12835479;
+    border-top: 23px solid #eb385081;
   }
   /* .html-card p{
     background: #12835479;
   } */
   
   .css-card{
-    border-top: 22px solid #50257479;
+    border-top: 23px solid #2253bd79;
   }
   /* .css-card p{
     background: #50257479;
   } */
   
   .js-card{
-    border-top: 22px solid #99ac3079;
+    border-top: 23px solid #ebba3573;
   }
 
   /* .js-card p {
@@ -84,7 +83,7 @@
   } */
   
   .react-card{
-    border-top: 22px solid #ec1a6b79;
+    border-top: 23px solid #23c79e79;
   }
 
   /* .react-card p{

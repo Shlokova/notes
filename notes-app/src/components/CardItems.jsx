@@ -1,6 +1,6 @@
 import React from 'react'
 import MyButtonDel from './UI/buttons/MyButtonDel'
-import MyButtons from './UI/buttons/MyButtons'
+
 
 const CardItems = (props) => {
     const cardClass = ['card-items'];
@@ -24,7 +24,7 @@ const CardItems = (props) => {
         <div className= {cardClass.join(' ')}>
             <div className = 'note-theme'>{props.note.theme}</div>
             <div>
-                <h3>{props.number}. {props.note.noteName}</h3>
+                <h4>{props.note.noteName}</h4>
                 <p>{props.note.noteText}</p>
             </div>
             <MyButtonDel onClick = {() => props.remove(props.note)}/>

@@ -27,7 +27,8 @@ const CardFilter = ({data, filter, setFilter, onChange}) => {
                 placeholder = "Поиск..."
                 onChange = {e => setFilter({...filter, query: e.target.value})}
             />
-
+            <div className='filter'>
+                <MyCheckbox data = {data} onChange = {onChange}/>
             <MySelect
                 value={filter.sort}
                 defaultValue='Сортировка по'
@@ -39,9 +40,6 @@ const CardFilter = ({data, filter, setFilter, onChange}) => {
                 }
                 onChange = {selectedSort => setFilter({...filter, sort: selectedSort})}
             />
-            <div>
-            
-                <MyCheckbox data = {data} onChange = {onChange}/>
             </div>
         </div>
     )

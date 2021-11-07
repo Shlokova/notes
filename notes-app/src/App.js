@@ -1,30 +1,24 @@
 import './styles/App.css';
-import { useState } from 'react';
+import './styles/cardStyle.css';
+import { useState, useEffect} from 'react';
 import CardList from './components/CardList';
 import MyButtons from './components/UI/buttons/MyButtons';
 import CardForm from './components/CardForm';
 import { useNotes } from './hooks/useNotes';
 import CardFilter from './components/CardFilter';
+import { useFetching } from './hooks/useFetching';
+import jsonStudyNotes from './studyNotes.json';
+import MyLoader from './components/UI/loader/MyLoader';
 
 function App() {
-  const [notes, setNotes]  = useState([
-    { id:1,
-      noteName: 'Название заметки',
-      noteText: 'Содержимое заметки',
-      theme: 'CSS',
-    },
-    {id:2,
-      noteName: 'Название заметки',
-    noteText: 'Содержимое заметки',
-    theme: 'HTML',
-    },
-    {
-      id:3,
-      noteName: 'Название заметки',
-      noteText: 'Содержимое заметки',
-      theme: 'JavaScript',
-  },
-  ])
+  
+  const [notes, setNotes]  = useState([]);
+  const [notesFetching, isNotesLoading, notesError] = useFetching(
+    setTimeout(() => setNotes(jsonStudyNotes), 3000)
+  )
+  useEffect(() => {
+    notesFetching()
+  }, []);
 
   const [visible, setVisible] = useState(false);
   const [sortThemeActivate, setSortThemeActivate] = useState([
@@ -73,8 +67,10 @@ function App() {
         visible = {visible}
         create = {createCard}
         />
-
-    <CardList notes = {sortedAndSearchPosts} remove = {removeCard}/>
+    {isNotesLoading
+    ?<MyLoader/>
+    :<CardList notes = {sortedAndSearchPosts} remove = {removeCard}/>}
+    
     </div>
   );
 }

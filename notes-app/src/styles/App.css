@@ -8,73 +8,11 @@
 }
 
 
-.card-items{
-  padding: 12px;
-  /* border-top: 20px solid #83a09479; */
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
-  margin: 12px;
-  background-color: #e4e6a41a;
-  float: left;
-  /* display: flex; */
-  width: 20%;
-  min-width: 150px;
-  height: 200px;
-  box-shadow: 4px 4px 14px rgba(6, 3, 10, 0.329);
-  position: relative;
+.filter{
+  display: flex;
+  /* align-items: center; */
+  justify-content:center;
 }
-
-.card-items p{
-  max-height: 150px;
-  overflow:auto;
-}
-
-.card-items .note-theme{
-  position: absolute;
-  top: -21px;
-  font-style: italic;
-  font-size: 15px;
-  
-}
-
-.html-card{
-  border-top: 22px solid #12835479;
-}
-
-.css-card{
-  border-top: 22px solid #50257479;
-}
-
-.js-card{
-  border-top: 22px solid #99ac3079;
-}
-
-.react-card{
-  border-top: 22px solid #ec1a6b79;
-}
-
-.card-list{
-  margin: 10px; 
-  /* display: flex; */
-}
-
-
-.card-enter {
-  /* transform: translateY(-50px); */
-  transform: scale(1.2, 1.2);
-}
-.card-enter-active {
-  transform: scale(1, 1);
-  transition: all 400ms ease-in;
-}
-.card-exit {
-  opacity: 0.7;
-}
-.card-exit-active {
-  transform: scale(0.9, 0.9);
-  transition: all 400ms ease-in;
-}
-
 
 
 .form-input,
@@ -94,4 +32,12 @@
   min-width: 300px;
   height: 50px;
   margin-right: 0px;
+}
+
+@media all and (max-width: 500px) {
+  .filter{
+    display: block;
+    /* align-items: center; */
+    /* justify-content:center; */
+  }
 }

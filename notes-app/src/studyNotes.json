@@ -1,0 +1,32 @@
+[
+    { "id":1,
+        "noteName": "Объявление переменных: var, const, let",
+        "noteText": "Оператор var. Объявленные с его помощью переменные работают в пределах функции и не доступны вне её.Переменные при выполнении оператора присваивания перемещаются в начало, что называется «поднятие переменных».Оператор let. Переменные, объявленные с его помощью, имеют блочную область видимости. Кроме того, они не доступны, пока не присвоены и пока их значение нельзя изменить в той же области.Переменные, объявленные с помощью var, доступны до присвоения. При использовании let и const — только после него. Этот феномен получил название «Временные мёртвые зоны». Кроме того, с помощью оператора let нельзя объявить другую переменную. Оператор const. Переменные, объявленные с его помощью, также имеют блочную область видимости и не доступны до присвоения. Кроме того, их нельзя объявить или заново присвоить в той же области",
+        "theme": "JavaScript"
+    },
+    { "id":2,
+    "noteName": "Типы данных в JS",
+    "noteText": "Есть 8 основных типов: number, string, bigint, symbol, boolean, null, undefined, object ",
+    "theme": "JavaScript"
+    },
+    { "id":3,
+    "noteName": "Что возвращает typeOf для null, function, array, string?",
+    "noteText": "Для null - строку 'object', для function - 'function', для array - 'object', для string - 'string'",
+    "theme": "JavaScript"
+    },
+    { "id":4,
+    "noteName": "Что возвращает typeOf для null, function, array, string?",
+    "noteText": "Для null - строку 'object', для function - 'function', для array - 'object', для string - 'string'",
+    "theme": "React"
+    },
+    { "id":5,
+    "noteName": "Что возвращает typeOf для null, function, array, string?",
+    "noteText": "Для null - строку 'object', для function - 'function', для array - 'object', для string - 'string'",
+    "theme": "CSS"
+    },
+    { "id":6,
+    "noteName": "Что возвращает typeOf для null, function, array, string?",
+    "noteText": "Для null - строку 'object', для function - 'function', для array - 'object', для string - 'string'",
+    "theme": "HTML"
+    }
+]

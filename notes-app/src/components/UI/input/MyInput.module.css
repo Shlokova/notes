@@ -2,6 +2,11 @@
     width: 75%;
     max-width: 500px;
     padding: 5px 15px;
-    margin: 5px 0;
-    border: 1px solid teal;
+    margin: 10px 5px;
+    border: 1px solid rgba(212, 204, 216, 0.356);
+    border-radius: 10px;
+    outline: slategray;
+    background-color: rgb(40, 36, 44);
+    color: rgb(212, 204, 216);
+    box-shadow: 2px 2px 10px rgb(30, 28, 32);
 }

@@ -38,7 +38,7 @@ const CardForm = ({create, visible, setVisible}) => {
     return (
         <MyModal visible = {visible} setVisible = {setVisible}>
             <Alert visible = {visibleAlert} type = 'danger'>
-                Пожалуйста заполните все данные
+                Пожалуйста, заполните все данные!
             </Alert>
             <MyInput 
                 className = 'form-input'

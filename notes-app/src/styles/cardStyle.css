@@ -17,8 +17,8 @@
     height: 150px;
     margin: 3px;
     padding: 5px;
-    
-    text-align: center;
+    white-space: pre-wrap;
+    text-align: left;
     overflow-y:auto;
     font-size: 14px;
   }

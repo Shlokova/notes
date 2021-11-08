@@ -4,6 +4,8 @@ import { useState } from 'react'
 import MyButtons from './UI/buttons/MyButtons'
 import MyModal from './UI/modal/MyModal'
 import MySelect from './UI/select/MySelect'
+import Alert from './UI/alert/Alert'
+
 
 const CardForm = ({create, visible, setVisible}) => {
     const [note, setNote]  = useState({
@@ -11,18 +13,33 @@ const CardForm = ({create, visible, setVisible}) => {
         noteName: '',
         noteText: '',
     theme: ''})
+
+    const [visibleAlert, setVisibleAlert] = useState(false);
+
     const addNewNote = (event)=>{
-        event.preventDefault();
-        const newNote = {...note, id: new Date()};
-        create(newNote)
-        setNote({
-            id: '',
-            noteName: '',
-            noteText: '',
-            theme: ''})
+        if (!note.noteName || !note.noteText || !note.theme)
+        {
+            setVisibleAlert(true);
+            setTimeout(()=> setVisibleAlert(false), 3000)
+        }
+        else{
+            event.preventDefault();
+            const newNote = {...note, id: new Date()};
+            create(newNote);
+            setNote({
+                 id: '',
+                 noteName: '',
+                 noteText: '',
+                 theme: ''});
+            setVisibleAlert(false);
+        }
+        
     }
     return (
         <MyModal visible = {visible} setVisible = {setVisible}>
+            <Alert visible = {visibleAlert} type = 'danger'>
+                Пожалуйста заполните все данные
+            </Alert>
             <MyInput 
                 className = 'form-input'
                 value = {note.noteName}

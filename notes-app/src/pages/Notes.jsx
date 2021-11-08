@@ -45,6 +45,7 @@ function Notes() {
       setNotes(notes.filter(n => n.id !== note.id))
   }
 
+
   const createCard = (newNote) => {
     setNotes([...notes, newNote])
         setVisible(false)

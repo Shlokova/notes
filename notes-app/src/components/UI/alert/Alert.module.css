@@ -1,0 +1,32 @@
+.danger{
+    color: rgb(58, 1, 1);
+    font-weight: 500;
+    border: 2px solid rgba(80, 0, 0, 0.404);
+    border-radius: 5px;
+    background: rgba(119, 12, 12, 0.171);
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 10px 0;
+    display: none;
+}
+
+.active{
+    display: block;
+}
+
+
+.alert-enter {
+    opacity: 0;
+  }
+  .alert-enter-active {
+    opacity: 1;
+    transition: opacity 500ms;
+  }
+  .alert-exit {
+    opacity: 1;
+  }
+  .alert-exit-active {
+    opacity: 0;
+    transition: opacity 500ms;
+  }
+  

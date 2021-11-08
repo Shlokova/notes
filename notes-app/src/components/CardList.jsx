@@ -1,6 +1,6 @@
 import React from 'react'
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import CardItems from './CardItems'
-import {TransitionGroup, CSSTransition} from 'react-transition-group'
 
 function CardList({ notes, remove }) {
     if (!notes.length) {

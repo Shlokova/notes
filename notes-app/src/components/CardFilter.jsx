@@ -4,7 +4,7 @@ import MyInput from "./UI/input/MyInput";
 import MySelect from "./UI/select/MySelect";
 
 
-const CardFilter = ({data, filter, setFilter, onChange}) => {
+const CardFilter = ({data, filter, setFilter, onChange, sortedNotes}) => {
     
 
     // const notesFilter = () =>{
@@ -25,8 +25,12 @@ const CardFilter = ({data, filter, setFilter, onChange}) => {
             <MyInput
                 value = {filter.query}
                 placeholder = "Поиск..."
-                onChange = {e => setFilter({...filter, query: e.target.value})}
+                onChange = {e => {
+                    setFilter({...filter, query: e.target.value});
+                   
+                }}
             />
+            {console.log(filter)}
             <div className='filter'>
                 <MyCheckbox data = {data} onChange = {onChange}/>
             <MySelect
@@ -38,7 +42,10 @@ const CardFilter = ({data, filter, setFilter, onChange}) => {
                         {value: 'noteName', name: 'По названию'}
                     ]
                 }
-                onChange = {selectedSort => setFilter({...filter, sort: selectedSort})}
+                onChange = {selectedSort => {
+                    setFilter({...filter, sort: selectedSort});
+                    // sortedNotes(filter.sort)
+                }}
             />
             </div>
         </div>

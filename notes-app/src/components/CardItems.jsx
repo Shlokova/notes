@@ -2,7 +2,7 @@ import React from 'react'
 import MyButtonDel from './UI/buttons/MyButtonDel'
 
 
-const CardItems = (props) => {
+const  CardItems = (props) => {
     const cardClass = ['card-items'];
     switch (props.note.theme){
         case 'HTML':
@@ -27,7 +27,7 @@ const CardItems = (props) => {
                 <h4>{props.note.noteName}</h4>
                 <p>{props.note.noteText}</p>
             </div>
-            <MyButtonDel onClick = {() => props.remove(props.note)}/>
+            <MyButtonDel onClick = {() => props.remove(props.note.id)}/>
         </div>
     )
 }

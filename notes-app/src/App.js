@@ -4,6 +4,7 @@ import MyNavbar from "./components/UI/navbar/MyNavbar";
 import AppRouter from './components/AppRouter';
 import { AuthContext } from './context/authContext';
 import { useEffect, useState } from 'react';
+import FirebaseState from './context/firebase/FirebaseState';
 
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
     setIsLoading(false);
   }, [])
   return (
+    <FirebaseState>
     <AuthContext.Provider value = {{
       isAuth,
       setIsAuth,
@@ -29,6 +31,7 @@ function App() {
             </BrowserRouter>
         </div>
     </AuthContext.Provider>
+    </FirebaseState>
   )
 }
 

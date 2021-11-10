@@ -1,21 +1,22 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import MyInput from './UI/input/MyInput'
 import { useState } from 'react'
 import MyButtons from './UI/buttons/MyButtons'
 import MyModal from './UI/modal/MyModal'
 import MySelect from './UI/select/MySelect'
 import Alert from './UI/alert/Alert'
+import { FirebaseContext } from '../context/firebase/firebaseContext'
 
 
 const CardForm = ({create, visible, setVisible}) => {
     const [note, setNote]  = useState({
-        id: '',
+        // id: '',
         noteName: '',
         noteText: '',
-    theme: ''})
+        theme: ''})
 
     const [visibleAlert, setVisibleAlert] = useState(false);
-
+    const firebase = useContext(FirebaseContext)
     const addNewNote = (event)=>{
         if (!note.noteName || !note.noteText || !note.theme)
         {
@@ -24,10 +25,16 @@ const CardForm = ({create, visible, setVisible}) => {
         }
         else{
             event.preventDefault();
-            const newNote = {...note, id: new Date()};
-            create(newNote);
+            // const newNote = {...note, id: new Date()};
+            // create(newNote);
+            // console.log(note)
+            firebase.addNote(note)
+                .catch((e)=>{
+                console.log(e)
+            });
+
             setNote({
-                 id: '',
+                //  id: '',
                  noteName: '',
                  noteText: '',
                  theme: ''});
@@ -35,6 +42,8 @@ const CardForm = ({create, visible, setVisible}) => {
         }
         
     }
+
+
     return (
         <MyModal visible = {visible} setVisible = {setVisible}>
             <Alert visible = {visibleAlert} type = 'danger'>

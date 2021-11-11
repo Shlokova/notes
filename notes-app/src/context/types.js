@@ -10,5 +10,5 @@ export const SEARCH_NOTES = 'SEARCH_NOTES';
 export const ALERT_ANSWER  = 'ALERT_ANSWER';
 export const SHOW_ALERT  = 'SHOW_ALERT';
 export const HIDE_ALERT  = 'HIDE_ALERT';
-export const ALERT_ACTION  = 'HIDE_ALERT';
+export const ALERT_ACTION  = 'ALERT_ACTION';
 

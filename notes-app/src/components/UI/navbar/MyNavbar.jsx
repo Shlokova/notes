@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { Link, NavLink } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import { AuthContext } from '../../../context/authContext'
 import MyButtons from '../buttons/MyButtons'
 import cl from './MyNavbar.module.css'
@@ -7,7 +7,7 @@ import cl from './MyNavbar.module.css'
 
 const MyNavbar = () => {
  
-    const {isAuth, setIsAuth} = useContext(AuthContext);
+    const {setIsAuth} = useContext(AuthContext);
 
     const logout = () =>{
         setIsAuth(false)

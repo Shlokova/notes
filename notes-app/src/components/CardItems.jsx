@@ -3,8 +3,8 @@ import { AlertContext } from '../context/alert/alertContext';
 import MyButtonDel from './UI/buttons/MyButtonDel'
 
 
-const  CardItems = ({note, remove, answer, setVisibleConfirm, setAnswer}) => {
-    const {alert, showAlert, hideAlert, answerAlert, actionAlert} = useContext(AlertContext)
+const  CardItems = ({note, remove}) => {
+    const {showAlert, actionAlert} = useContext(AlertContext)
     const cardClass = ['card-items'];
     switch (note.theme){
         case 'HTML':

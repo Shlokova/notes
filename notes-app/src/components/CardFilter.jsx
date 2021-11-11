@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import MyCheckbox from './UI/checkbox/MyCheckbox';
 import MyInput from "./UI/input/MyInput";
 import MySelect from "./UI/select/MySelect";
@@ -13,7 +13,7 @@ const CardFilter = ({filter, setFilter, data, onChange}) => {
                 placeholder = "Поиск..."
                 onChange = {e => setFilter({...filter, query: e.target.value})}
             />
-            {console.log(filter)}
+            
             <div className='filter'>
                 <MyCheckbox data = {data} onChange = {onChange}/>
             <MySelect

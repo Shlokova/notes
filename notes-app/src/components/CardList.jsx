@@ -3,13 +3,13 @@ import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { FirebaseContext } from '../context/firebase/firebaseContext';
 import CardItems from './CardItems'
 
-// function CardList({ notes, remove }) {
-    function CardList({confirmAnswer, setVisibleConfirm, setAnswer }) {
+
+    function CardList() {
 
     const {notes,  removeNote} = useContext(FirebaseContext);
     if (!notes.length) {
         return (
-            <div>Ничего нет...</div>
+            <div>Заметок нет...</div>
         );
     }
     return (
@@ -22,11 +22,7 @@ import CardItems from './CardItems'
                     classNames="card"
                 >
                     <CardItems 
-                        setAnswer = {setAnswer} 
-                        setVisibleConfirm = {setVisibleConfirm} 
                         note={item}
-                        answer ={confirmAnswer}
-                        number={index + 1} 
                         remove={ removeNote } />
                 </CSSTransition>
                 )}

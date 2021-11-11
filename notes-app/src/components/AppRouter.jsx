@@ -22,7 +22,7 @@ const AppRouter = () => {
                 exact={route.exect}
                 key = {route.path}
                 />)}
-              <Redirect to = '/about'/>
+              <Redirect to = '/notes'/>
         </Switch>
       :
       <Switch>

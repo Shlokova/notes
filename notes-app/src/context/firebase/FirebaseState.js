@@ -51,6 +51,7 @@ const FirebaseState = ({children}) => {
                 type: ADD_NOTE,
                 payload
             })
+            
         }
         catch(e){
             throw new Error(e.messege)
@@ -82,7 +83,6 @@ const FirebaseState = ({children}) => {
     }
 
     const searchNotes = (query) =>{
-        console.log(query)
         dispatch({
             type: SEARCH_NOTES,
             payload: query

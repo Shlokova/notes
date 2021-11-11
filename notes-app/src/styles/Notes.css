@@ -2,7 +2,6 @@
 
 .filter{
   display: flex;
-  /* align-items: center; */
   justify-content:center;
 }
 
@@ -56,8 +55,6 @@
 @media all and (max-width: 500px) {
   .filter{
     display: block;
-    /* align-items: center; */
-    /* justify-content:center; */
   }
 }
 

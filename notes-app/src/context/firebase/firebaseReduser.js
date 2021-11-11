@@ -1,4 +1,3 @@
-import { useNotes } from "../../hooks/useNotes"
 import { ADD_NOTE, FETCH_NOTES, FILTER_NOTES, REMOVE_NOTE, SEARCH_NOTES, SHOW_LOADER, SORTED_NOTES } from "../types"
 
 const handlers = {

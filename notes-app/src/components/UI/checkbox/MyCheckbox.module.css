@@ -1,7 +1,7 @@
 .checkboxList{
     float: left;
     width: 20%;
-    
+    min-width: 250px;
     border:1px solid rgba(196, 196, 196, 0.137);
     border-radius: 10px;
     margin: 5px;
@@ -18,10 +18,6 @@
 }
 
 
-
-.checkboxItem label{
-    text-align: center;
-}
 
 .checkbox{
     margin: 1px;

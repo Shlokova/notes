@@ -7,15 +7,12 @@ import MyButtons from '../components/UI/buttons/MyButtons';
 import CardForm from '../components/CardForm';
 import { useNotes } from '../hooks/useNotes';
 import CardFilter from '../components/CardFilter';
-import { useFetching } from '../hooks/useFetching';
-import jsonStudyNotes from '../studyNotes.json';
 import MyLoader from '../components/UI/loader/MyLoader';
 import { FirebaseContext } from '../context/firebase/firebaseContext';
-import Confirm from '../components/UI/confirm/Confirm';
 
 
 function Notes() {
-  const {loading,fetchNotes,sortedNotes} = useContext(FirebaseContext)
+  const {loading,fetchNotes,sortedNotes, notes} = useContext(FirebaseContext)
 
   useEffect(() => {
     fetchNotes()
@@ -23,8 +20,6 @@ function Notes() {
   }, []);
   
   const [visible, setVisible] = useState(false);
-  const [confirmVisible, setConfirmVisible] = useState(false);
-  const [answer, setAnswer] = useState('');
   const [sortThemeActivate, setSortThemeActivate] = useState([
     {title: "CSS", active: true},
     {title: "HTML", active: true},
@@ -33,7 +28,7 @@ function Notes() {
   ]);
 
   const [filter, setFilter] = useState({sort: '', query: '', theme: sortThemeActivate})
-  useNotes(filter.sort, filter.query, filter.theme);
+  useNotes(notes, filter.sort, filter.query, filter.theme);
   
   const changeBox = (e) =>{
     const newStateSortThemeActivate = [...sortThemeActivate];
@@ -60,17 +55,11 @@ function Notes() {
         setVisible ={setVisible}
         visible = {visible}
         />
-      {/* <Confirm 
-        visible = {confirmVisible}
-        setVisible = {setConfirmVisible}
-        setAnswer = {setAnswer}
-        question = "Вы уверены, что хотите удалить заметку?"
-      /> */}
 
          <MyButtons onClick = {() => setVisible(true)}>Добавить заметку + </MyButtons>
     {loading
     ?<MyLoader/>
-    :<CardList  setVisibleConfirm = {setConfirmVisible} confirmAnswer = {answer} setAnswer = {setAnswer}/>
+    :<CardList/>
     }
 
     

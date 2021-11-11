@@ -21,7 +21,7 @@ export const useSortedAndSearchNotes = (notes,sort,query) =>{
         if (query){
             searchNotes( query );
         }
-    }, [query, notes, notes.length]);
+    }, [query, notes.length]);
 
 }
 

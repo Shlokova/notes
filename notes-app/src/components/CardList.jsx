@@ -4,7 +4,7 @@ import { FirebaseContext } from '../context/firebase/firebaseContext';
 import CardItems from './CardItems'
 
 // function CardList({ notes, remove }) {
-    function CardList() {
+    function CardList({confirmAnswer, setVisibleConfirm, setAnswer }) {
 
     const {notes,  removeNote} = useContext(FirebaseContext);
     if (!notes.length) {
@@ -21,7 +21,13 @@ import CardItems from './CardItems'
                     timeout={400}
                     classNames="card"
                 >
-                    <CardItems note={item}  number={index + 1} remove={ removeNote } />
+                    <CardItems 
+                        setAnswer = {setAnswer} 
+                        setVisibleConfirm = {setVisibleConfirm} 
+                        note={item}
+                        answer ={confirmAnswer}
+                        number={index + 1} 
+                        remove={ removeNote } />
                 </CSSTransition>
                 )}
                 </TransitionGroup>

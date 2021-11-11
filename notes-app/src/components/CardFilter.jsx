@@ -4,31 +4,14 @@ import MyInput from "./UI/input/MyInput";
 import MySelect from "./UI/select/MySelect";
 
 
-const CardFilter = ({data, filter, setFilter, onChange, sortedNotes}) => {
-    
-
-    // const notesFilter = () =>{
-    //     const activeNotes = [];
-    //     for (let i = 0; i < data.length; i++){
-    //         if (data[i].active === true){
-    //             activeNotes.push(data[i].title)
-    //         }
-    //     }
-    //     return [...notes].filter(note => activeNotes.includes(note.theme)
-    //     )
-    // }
-
-    
+const CardFilter = ({filter, setFilter, data, onChange}) => {
 
     return (
         <div>
             <MyInput
                 value = {filter.query}
                 placeholder = "Поиск..."
-                onChange = {e => {
-                    setFilter({...filter, query: e.target.value});
-                   
-                }}
+                onChange = {e => setFilter({...filter, query: e.target.value})}
             />
             {console.log(filter)}
             <div className='filter'>
@@ -42,10 +25,7 @@ const CardFilter = ({data, filter, setFilter, onChange, sortedNotes}) => {
                         {value: 'noteName', name: 'По названию'}
                     ]
                 }
-                onChange = {selectedSort => {
-                    setFilter({...filter, sort: selectedSort});
-                    // sortedNotes(filter.sort)
-                }}
+                onChange = {selectedSort => setFilter({...filter, sort: selectedSort})}
             />
             </div>
         </div>

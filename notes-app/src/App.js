@@ -5,6 +5,8 @@ import AppRouter from './components/AppRouter';
 import { AuthContext } from './context/authContext';
 import { useEffect, useState } from 'react';
 import FirebaseState from './context/firebase/FirebaseState';
+import AlertState from './context/alert/AlertState';
+import Confirm from './components/UI/confirm/Confirm';
 
 
 function App() {
@@ -19,6 +21,7 @@ function App() {
   }, [])
   return (
     <FirebaseState>
+    <AlertState>
     <AuthContext.Provider value = {{
       isAuth,
       setIsAuth,
@@ -28,9 +31,11 @@ function App() {
             <BrowserRouter>
                 <MyNavbar/>
                 <AppRouter/>
+                <Confirm/>
             </BrowserRouter>
         </div>
     </AuthContext.Provider>
+    </AlertState>
     </FirebaseState>
   )
 }

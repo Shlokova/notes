@@ -11,32 +11,30 @@ import { useFetching } from '../hooks/useFetching';
 import jsonStudyNotes from '../studyNotes.json';
 import MyLoader from '../components/UI/loader/MyLoader';
 import { FirebaseContext } from '../context/firebase/firebaseContext';
+import Confirm from '../components/UI/confirm/Confirm';
 
 
 function Notes() {
-  
-  // const [notes, setNotes]  = useState([]);
-  const {loading, notes, fetchNotes, filterNotes, sortedNotes} = useContext(FirebaseContext)
-  // const [notesFetching, isNotesLoading, notesError] = useFetching(
-  //   () => setNotes(jsonStudyNotes)
-  // )
+  const {loading,fetchNotes,sortedNotes} = useContext(FirebaseContext)
 
   useEffect(() => {
-    // notesFetching()
     fetchNotes()
     // eslint-disable-next-line
   }, []);
   
   const [visible, setVisible] = useState(false);
+  const [confirmVisible, setConfirmVisible] = useState(false);
+  const [answer, setAnswer] = useState('');
   const [sortThemeActivate, setSortThemeActivate] = useState([
     {title: "CSS", active: true},
     {title: "HTML", active: true},
     {title: "JavaScript", active: true},
     {title: "React", active: true},
   ]);
+
   const [filter, setFilter] = useState({sort: '', query: '', theme: sortThemeActivate})
   useNotes(filter.sort, filter.query, filter.theme);
-  // filterNotes(newNotes)
+  
   const changeBox = (e) =>{
     const newStateSortThemeActivate = [...sortThemeActivate];
     for (let theme of newStateSortThemeActivate){
@@ -45,20 +43,8 @@ function Notes() {
       }
     }
     setSortThemeActivate(newStateSortThemeActivate);
-    // filterNotes(sortThemeActivate)
   }
 
-
-
-  // const removeCard = (note) =>{
-  //     setNotes(notes.filter(n => n.id !== note.id))
-  // }
-
-  // const createCard = (newNote) => {
-  //   setNotes([...notes, newNote])
-  //       setVisible(false)
-  // }
-  
   
   return ( 
     <div className="Notes">
@@ -71,18 +57,20 @@ function Notes() {
             />
      
       <CardForm 
-        // setNotes = {setNotes} 
-        // notes = {notes}
         setVisible ={setVisible}
         visible = {visible}
-        // create = {createCard}
         />
+      {/* <Confirm 
+        visible = {confirmVisible}
+        setVisible = {setConfirmVisible}
+        setAnswer = {setAnswer}
+        question = "Вы уверены, что хотите удалить заметку?"
+      /> */}
 
          <MyButtons onClick = {() => setVisible(true)}>Добавить заметку + </MyButtons>
     {loading
     ?<MyLoader/>
-    //:<CardList notes = {sortedAndSearchPosts} /> 
-    :<CardList notes = {notes}/>
+    :<CardList  setVisibleConfirm = {setConfirmVisible} confirmAnswer = {answer} setAnswer = {setAnswer}/>
     }
 
     

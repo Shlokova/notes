@@ -1,39 +1,35 @@
-import {useMemo} from "react";
+import {useContext, useMemo} from "react";
+import { FirebaseContext } from "../context/firebase/firebaseContext";
+
+
 
 export const useSortedNotes = (notes,sort) =>{
-    
-    const sortedNotes = useMemo(() => {
-        console.log('sort')
+    const {sortNotes} = useContext(FirebaseContext);
+    useMemo(() => { 
         if (sort) {
-            return [...notes].sort(((a, b) => a[sort].localeCompare(b[sort])))
+            sortNotes(sort)
         }
-        return notes;
-    }, [sort, notes])
-    return sortedNotes;
+        
+    }, [sort, notes.length]);
 }
 
 export const useSortedAndSearchNotes = (notes,sort,query) =>{
     
-    const sortedNotes = useSortedNotes(notes,sort);
-    const sortedAndSearchNotes = useMemo(() => {
-        console.log('query')
-        return sortedNotes.filter(note => note.noteName.toLowerCase().includes(query.toLowerCase()))
-    }, [query, sortedNotes]);
-
-    return sortedAndSearchNotes;
+    useSortedNotes(notes,sort);
+    const {searchNotes} = useContext(FirebaseContext);
+    useMemo(() => {
+        if (query){
+            searchNotes( query );
+        }
+    }, [query, notes.length]);
 
 }
 
-export const useNotes = (notes,sort ,query, theme) => {
-    const sortedNotes = useSortedAndSearchNotes(notes,sort, query);
-    
-    // console.log(sortedNotes)
-    // console.log(theme.reduce((item, sum => sum && item)))
-    const sortedAndSearchThemeNotes = useMemo(() => {
-        console.log('theme')
-        return sortedNotes.filter(note => !!theme.find((item) => item.title === note.theme && item.active === true))
-            
-    }, [theme.values(), sortedNotes]);
+export const useNotes = (notes, sort ,query, theme) => {
+    useSortedAndSearchNotes(notes, sort, query);
+    const {filterNotes} = useContext(FirebaseContext);
+    useMemo(() => {
+        filterNotes(theme, query);
 
-    return sortedAndSearchThemeNotes;
+    }, [theme[0].active, theme[1].active, theme[2].active, theme[3].active, query, notes.length]);
 }

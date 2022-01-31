@@ -1,11 +1,15 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
+import { FirebaseContext } from '../context/firebase/firebaseContext';
 import CardItems from './CardItems'
 
-function CardList({ notes, remove }) {
+
+    function CardList() {
+
+    const {notes,  removeNote} = useContext(FirebaseContext);
     if (!notes.length) {
         return (
-            <div>Ничего нет...</div>
+            <div>Заметок нет...</div>
         );
     }
     return (
@@ -17,7 +21,9 @@ function CardList({ notes, remove }) {
                     timeout={400}
                     classNames="card"
                 >
-                    <CardItems note={item} key={index} number={index + 1} remove={remove} />
+                    <CardItems 
+                        note={item}
+                        remove={ removeNote } />
                 </CSSTransition>
                 )}
                 </TransitionGroup>

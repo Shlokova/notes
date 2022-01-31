@@ -1,0 +1,26 @@
+.modal{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background: rgba(27, 19, 34, 0.801);
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.confirm{
+    padding: 25px;
+    background: linear-gradient(rgb(137, 121, 145),rgb(94, 94, 94));
+    border-radius: 5px;
+    max-width: 400px;
+    min-width: 300px;
+    color: rgb(41, 2, 2);
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    letter-spacing: 3px;
+}
+.buttons{
+    margin-top: 10px;
+}

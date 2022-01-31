@@ -34,13 +34,11 @@
   }
   
   .card-items p::-webkit-scrollbar-thumb{
-      /* background-color: rgb(39, 40, 59); */
-    background: linear-gradient(180deg, rgba(42, 62, 71, 0.74), rgb(80, 49, 92));
+      background: linear-gradient(180deg, rgba(42, 62, 71, 0.74), rgb(80, 49, 92));
       border-radius: 5px;
   }
 
   .card-items p::-webkit-scrollbar-track{
-    /* scrollbar-shadow-color:cyan; */
     border-radius: 5px;
     background-color: rgb(96, 82, 109);
   }
@@ -63,41 +61,25 @@
   .html-card{
     border-top: 23px solid #eb385081;
   }
-  /* .html-card p{
-    background: #12835479;
-  } */
   
   .css-card{
     border-top: 23px solid #2253bd79;
   }
-  /* .css-card p{
-    background: #50257479;
-  } */
   
   .js-card{
     border-top: 23px solid #ebba3573;
   }
 
-  /* .js-card p {
-    background: #99ac3079;
-  } */
-  
   .react-card{
     border-top: 23px solid #23c79e79;
   }
-
-  /* .react-card p{
-    background:  #ec1a6b79;
-  } */
-  
+ 
   .card-list{
     margin: 10px; 
-    /* display: flex; */
   }
   
   
   .card-enter {
-    /* transform: translateY(-50px); */
     transform: scale(1.2, 1.2);
   }
   .card-enter-active {

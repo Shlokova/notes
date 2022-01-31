@@ -6,9 +6,9 @@ const MyCheckbox = ({data, onChange}) => {
     return (
         <div className = {cl.checkboxList}>
             {data.map((item) =>
-            <div className = {cl.checkboxItem}>
+            <div key = {item.title} className = {cl.checkboxItem}>
                 <input type = 'checkbox' className = {cl.checkbox} checked = {item.active} name={item.title} onChange = {event => onChange(event)}/>
-                <lable>{item.title}</lable>
+                <span>{item.title}</span>
             </div>
             )}
             
